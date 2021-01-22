@@ -1,0 +1,27 @@
+- name: HTTP Request Action
+  # You may pin to the exact commit or the version.
+  # uses: fjogeleit/http-request-action@f91c5933c46302a5c57e3087b14285f1bcf93646
+  uses: fjogeleit/http-request-action@v1.6.1
+  with:
+    # Request URL
+    url: 
+    # Request Method
+    method: # optional, default is POST
+    # Content Type
+    contentType: # optional, default is application/json
+    # Request Body as JSON String
+    data: # optional, default is {}
+    # Auth Username
+    username: # optional
+    # Auth Password
+    password: # optional
+    # Request Timeout in Sec
+    timeout: # optional, default is 5000
+    # Bearer Authentication Token
+    bearerToken: # optional
+    # Custom HTTP Headers
+    customHeaders: # optional
+    # Prevent this Action to fail if the request respond without an response
+    preventFailureOnNoResponse: # optional
+    # Escape newlines in data string content
+    escapeData: # optional
