@@ -25,13 +25,7 @@ jobs:
       run: dotnet build
     - name: Test
       run: |
-        cd ./Airtraffic/Airtraffic.Tests
-        dotnet test --no-restore --no-build --logger:"liquid.md;LogFileName=${{github.workspace}}/${{env.file_name}};Title=${{env.title}};"
-    - name: Upload a Build Artifact
-      uses: actions/upload-artifact@v2
-      if: ${{always()}}
-      with:
-        name: 'Test Run'
-        path: ${{github.workspace}}/${{env.file_name}}
+        cd ./Airtraffic.Tests
+        dotnet test --no-restore --no-build --logger:"liquid.md;LogFileName=$"test output"
     
 
