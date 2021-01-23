@@ -19,7 +19,7 @@ namespace Airtraffic.Domain.Models
             
             flightInformation.EstimatedTimeInHours = FlightCalculator.CalculateEstimatedTime(flightInformation.DistanceInKilometers, AirspeedInKilometersPerHour);
 
-            flightInformation.FuelUseInKilometresPerLitre = 0;
+            flightInformation.FuelUseInLitres = 0;
 
             return flightInformation;
         }
