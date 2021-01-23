@@ -27,10 +27,11 @@ jobs:
       run: |
         cd ./Airtraffic/Airtraffic.Tests
         dotnet test --no-restore --no-build --logger:"liquid.md;LogFileName=$'test output'"
+    
     - name: Deploy Stage
       uses: fjogeleit/http-request-action@master
       with:
-       url: 'https://localhost:44373/api/glider/fly/51'
+       url: 'https://acies-airtraffic.azurewebsites.net/api/glider/fly/51'
        method: 'POST'
        data:  '{ "destinationAirportId" : 99 }'
     
