@@ -33,6 +33,6 @@ jobs:
       with:
        url: 'https://acies-airtraffic.azurewebsites.net/api/glider/fly/51'
        method: 'POST'
-       data:  '{ "destinationAirportId" : 100 }'    
+       data:  '{ "destinationAirportId" : 99 }'    
     - name: Print response
       run: echo "${{ steps.fly-request.output}}"
