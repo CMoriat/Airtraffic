@@ -22,7 +22,7 @@ jobs:
       working-directory: ./Airtraffic
     - name: Build
       working-directory: ./Airtraffic
-      run: dotnet build --configuration $config --no-restore
+      run: dotnet build
     - name: Set Test Title
       run: |
         echo "::set-env name=title::Test Run ${{github.run_number}}"
