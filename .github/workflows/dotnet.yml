@@ -26,6 +26,6 @@ jobs:
     - name: Test
       run: |
         cd ./Airtraffic/Airtraffic.Tests
-        dotnet test --no-restore --no-build --logger:"liquid.md;LogFileName=$"test output"
+        dotnet test --no-restore --no-build --logger:"liquid.md;LogFileName=$'test output'"
     
 
