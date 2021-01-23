@@ -27,11 +27,21 @@ jobs:
       run: |
         cd ./Airtraffic/Airtraffic.Tests
         dotnet test --no-restore --no-build --logger:"liquid.md;LogFileName=$'test output'"
+    - name: Create flight HTTP Post Request
+      id: create_flight
+      uses: fjogeleit/http-request-action@master
+      with:
+       url: 'https://acies-airtraffic.azurewebsites.net/api/airplane/'
+       method: 'POST'
+       data:  '{ { "fuelConsumptionInKilometersPerLitre": 1337, "name": "Github Action Airplane 123", "airspeedInKilometersPerHour": 975, "pilotCount": 23, "airportId": 100 } }' 
+    - name: Get flight ID
+      id: get_id
+       
     - name: Fly HTTP Post Request
       id: fly_request
       uses: fjogeleit/http-request-action@master
       with:
-       url: 'https://acies-airtraffic.azurewebsites.net/api/glider/fly/51'
+       url: 'https://acies-airtraffic.azurewebsites.net/api/glider/fly/${{steps.create_flight.outputs.id}}'
        method: 'POST'
        data:  '{ "destinationAirportId" : 99 }'    
     - name: Print response
