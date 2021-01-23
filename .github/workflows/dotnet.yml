@@ -24,7 +24,9 @@ jobs:
       working-directory: ./Airtraffic
       run: dotnet build
     - name: Test
-      run: dotnet test --no-restore --no-build --configuration $config --logger:"liquid.md;LogFileName=${{github.workspace}}/${{env.file_name}};Title=${{env.title}};"
+      run: |
+        cd ./Airtraffic/Airtraffic.Tests
+        dotnet test --no-restore --no-build --logger:"liquid.md;LogFileName=${{github.workspace}}/${{env.file_name}};Title=${{env.title}};"
     - name: Upload a Build Artifact
       uses: actions/upload-artifact@v2
       if: ${{always()}}
