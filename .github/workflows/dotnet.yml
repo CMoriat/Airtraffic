@@ -35,4 +35,4 @@ jobs:
        method: 'POST'
        data:  '{ "destinationAirportId" : 100 }'    
     - name: Print response
-      run: echo "${{fromJSON(steps.fly_request.outputs)}}"
+      run: echo "${{steps.fly_request.outputs.response}}"
