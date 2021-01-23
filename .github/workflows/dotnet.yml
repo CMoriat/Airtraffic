@@ -32,6 +32,6 @@ jobs:
       with:
        url: 'https://localhost:44373/api/glider/fly/51'
        method: 'POST'
-       with:  '{ "destinationAirportId" : 99 }'
+       data:  '{ "destinationAirportId" : 99 }'
     
 
