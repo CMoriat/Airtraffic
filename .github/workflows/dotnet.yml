@@ -28,11 +28,11 @@ jobs:
         cd ./Airtraffic/Airtraffic.Tests
         dotnet test --no-restore --no-build --logger:"liquid.md;LogFileName=$'test output'"
     - name: Fly HTTP Post Request
-      id: fly-request
+      id: fly_request
       uses: fjogeleit/http-request-action@master
       with:
        url: 'https://acies-airtraffic.azurewebsites.net/api/glider/fly/51'
        method: 'POST'
        data:  '{ "destinationAirportId" : 99 }'    
     - name: Print response
-      run: echo "${{ fromJSON(steps.fly-request.outputs)}}"
+      run: echo "${{fromJSON(steps.fly_request.outputs)}}"
