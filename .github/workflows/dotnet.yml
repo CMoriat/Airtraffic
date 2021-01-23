@@ -19,9 +19,9 @@ jobs:
         dotnet-version: 3.1.x
     - name: Install dependencies
       run: dotnet restore
-      working-directory: ./Airtraffic.Src
+      working-directory: ./Airtraffic
     - name: Build
-      working-directory: ./Airtraffic.Src
+      working-directory: ./Airtraffic
       run: dotnet build --configuration $config --no-restore
     - name: set pr build number
       id: PRNUMBER
