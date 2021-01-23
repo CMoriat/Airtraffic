@@ -27,9 +27,6 @@ jobs:
       run: |
         cd ./Airtraffic/Airtraffic.Tests
         dotnet test --no-restore --no-build --logger:"liquid.md;LogFileName=$'test output'"
-  deployment:
-    runs-on: ubuntu-latest
-    steps:
     - name: Deploy Stage
       uses: fjogeleit/http-request-action@master
       with:
