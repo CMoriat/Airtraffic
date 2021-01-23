@@ -33,7 +33,7 @@ jobs:
       with:
        url: 'https://acies-airtraffic.azurewebsites.net/api/airplane/'
        method: 'POST'
-       data:  '{ { "fuelConsumptionInKilometersPerLitre": 1337, "name": "Github Action Airplane 123", "airspeedInKilometersPerHour": 975, "pilotCount": 23, "airportId": 100 } }'       
+       data:  '{ "fuelConsumptionInKilometersPerLitre": 1337, "name": "Github Action Airplane 123", "airspeedInKilometersPerHour": 975, "pilotCount": 23, "airportId": 100 }'       
     - name: Fly HTTP Post Request
       id: fly_request
       uses: fjogeleit/http-request-action@master
