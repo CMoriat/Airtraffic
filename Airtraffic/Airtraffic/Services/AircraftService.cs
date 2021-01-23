@@ -43,12 +43,18 @@ namespace Airtraffic.Services
             return await _aircraftRepository.ReadAll();
         }
 
-        public async Task<T> FindById(int id)
+        public async Task<AircraftResponseObject<T>> FindById(int id)
         {
-            var aircraft = await _aircraftRepository.Read(id);
-            if (aircraft == null)
-                throw new KeyNotFoundException();
-            return aircraft;
+            try
+            {
+                var aircraft = await _aircraftRepository.Read(id);
+                if (aircraft == null) return new AircraftResponseObject<T>($"No aircraft found with id:  {id}");
+                return new AircraftResponseObject<T>(aircraft);
+            }
+            catch (Exception e)
+            {
+                return new AircraftResponseObject<T>($"The following error occured when locating the aircraft: {e.Message}");
+            }
         }
 
         public async Task<AircraftResponseObject<T>> DeleteAsync(int id)

@@ -34,11 +34,14 @@ namespace Airtraffic.Controllers
         }
 
         [HttpGet("{id}")]
-        public async Task<ActionResult<TResponse>> Get(int id)
+        public async Task<IActionResult> Get(int id)
         {
-            var aircraft = await _aircraftService.FindById(id);
-            var aircraftResponse  = _mapper.Map<T, TResponse>(aircraft);
-            return aircraftResponse;
+            var result = await _aircraftService.FindById(id);
+            if (!result.Success)
+                return BadRequest(result.Message);
+
+            var aircraftDTO = _mapper.Map<T, TResponse>(result.Aircraft);
+            return Ok(aircraftDTO);
         }
         
         [HttpPut("{id}")]
