@@ -35,12 +35,12 @@ jobs:
        method: 'POST'
        data:  '{ "fuelConsumptionInKilometersPerLitre": 1337, "name": "Github Action Airplane 123", "airspeedInKilometersPerHour": 975, "pilotCount": 23, "airportId": 100 }'       
     - name: print id
-      run: echo "${{ steps.create_flight.outputs.response }}"
+      run: echo "${{ fromJSON(steps.create_flight.outputs.response).id }}"
     - name: Fly HTTP Post Request
       id: fly_request
       uses: fjogeleit/http-request-action@master
       with:
-       url: 'https://acies-airtraffic.azurewebsites.net/api/airplane/fly/${{ fromJSON(steps.create_flight.outputs.response) }}'
+       url: 'https://acies-airtraffic.azurewebsites.net/api/airplane/fly/${{ fromJSON(steps.create_flight.outputs.response).id }}'
        method: 'POST'
        data:  '{ "destinationAirportId" : 99 }'    
     - name: Print response
