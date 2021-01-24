@@ -31,7 +31,7 @@ jobs:
       id: create_flight
       uses: fjogeleit/http-request-action@master
       with:
-       url: 'https://acies-airtraffic.azurewebsites.net/api/airplane/'
+       url: 'https://acies-airtraffic.azurewebsites.net/api/airplane'
        method: 'POST'
        data:  '{ "fuelConsumptionInKilometersPerLitre": 1337, "name": "Github Action Airplane 123", "airspeedInKilometersPerHour": 975, "pilotCount": 23, "airportId": 100 }'       
     - name: print id
